@@ -16,21 +16,29 @@ En otras palabras, tiene como objetivo dar a las computadoras una comprensión v
 
 ## Cómo funciona Computer Vision?
 
-Las aplicaciones de Computer Vision utilizan entradas que proceden de sensores, inteligencia artificial, aprendizaje automático y aprendizaje profundo para replicar el funcionamiento de la visión humana. Las aplicaciones de visión artificial ejecutan algoritmos que se entrenan con enormes cantidades de datos visuales o imágenes en la nube. Reconocen patrones en los datos visuales y usan esos patrones para determinar el contenido de otras imágenes.
+Las aplicaciones de Computer Vision utilizan entradas que proceden de sensores, inteligencia artificial, aprendizaje automático y aprendizaje profundo para replicar el funcionamiento de la visión humana. 
+Estas aplicaciones ejecutan algoritmos que se entrenan con enormes cantidades de datos visuales o imágenes. Reconocen patrones en los datos visuales y usan esos patrones para determinar el contenido de otras imágenes.
 
 
 
-Cómo se analiza una imagen con Computer Vision
+## Cómo se analiza una imagen con Computer Vision
 
-    Un sensor captura una imagen. A menudo, este sensor es simplemente una cámara, pero puede ser una cámara de vídeo, un dispositivo médico de diagnóstico por imagen o cualquier otro tipo de dispositivo que capture una imagen para analizarla.
+1. Un sensor captura una imagen. 
+A menudo, este sensor es simplemente una cámara, pero puede ser una cámara de vídeo, un dispositivo médico de diagnóstico por imagen o cualquier otro tipo de dispositivo que capture una imagen para analizarla.
 
-    A continuación, se envía la imagen a un dispositivo de interpretación. El dispositivo de interpretación usa el reconocimiento de patrones para descomponer la imagen, comparar los patrones que contiene con su biblioteca de patrones conocidos y determinar si hay contenido en la imagen que coincida. El patrón puede ser algo general, como la apariencia de un determinado tipo de objeto, o podría basarse en identificadores únicos, como los rasgos faciales.
+2. A continuación, se envía la imagen a un dispositivo de interpretación. 
+El dispositivo de interpretación usa el reconocimiento de patrones para descomponer la imagen, comparar los patrones que contiene con su biblioteca de patrones conocidos y determinar si hay contenido en la imagen que coincida. 
+El patrón puede ser algo general, como la apariencia de un determinado tipo de objeto, o podría basarse en identificadores únicos, como los rasgos faciales.
 
-    Un usuario solicita información específica sobre una imagen y el dispositivo de interpretación proporciona la información solicitada en función del análisis que ha realizado de la imagen.
+3. Un usuario solicita información específica sobre una imagen y el dispositivo de interpretación proporciona la información solicitada en función del análisis que ha realizado de la imagen.
 
-Aprendizaje profundo y Computer Vision
 
-    Las modernas aplicaciones de Computer Vision están dejando de usar métodos estadísticos para analizar las imágenes y, cada vez más, se basan en lo que se conoce como aprendizaje profundo. Con el aprendizaje profundo, una aplicación de visión artificial ejecuta un tipo de algoritmo denominado red neuronal, que le permite proporcionar análisis más precisos de las imágenes. Además, el aprendizaje profundo permite a un programa de Computer Vision conservar la información de cada imagen que analiza, de modo que, cuanto más se usa, mejor es su precisión.
+
+## Aprendizaje profundo y Computer Vision
+
+Las modernas aplicaciones de Computer Vision están dejando de usar métodos estadísticos para analizar las imágenes y, cada vez más, se basan en lo que se conoce como aprendizaje profundo. 
+Con el aprendizaje profundo, una aplicación de visión artificial ejecuta un tipo de algoritmo denominado red neuronal, que le permite proporcionar análisis más precisos de las imágenes. 
+Además, el aprendizaje profundo permite a un programa de Computer Vision conservar la información de cada imagen que analiza, de modo que, cuanto más se usa, mejor es su precisión.
 
 
 
@@ -53,72 +61,52 @@ El sistema analiza un vídeo para procesar la ubicación de un objeto en movimie
 ## Usos del Computer Vision
 
 
-Organización de contenido
+- Organización de contenido
 
 Computer Vision se puede usar para identificar a personas u objetos en fotografías y organizarlos en función de esa identificación. Las aplicaciones de reconocimiento de fotografías como esta se suelen usar para el almacenamiento de fotografías y en los medios sociales.
 
 
-
-
-Extracción de texto
+- Extracción de texto
 
 El reconocimiento óptico de caracteres puede usarse para mejorar la detectabilidad de la información contenida en grandes cantidades de texto y para habilitar el procesamiento de documentos en escenarios de automatización de procesos robóticos. También resulta de utilidad para mejorar la accesibilidad en la obtención de información para personas con dificultades de visión.
 
 
-
-
-Realidad aumentada
+- Realidad aumentada
 
 Computer Vision puede detectar y seguir objetos físicos en tiempo real. Esta información se utiliza después para colocar objetos virtuales en un entorno físico de forma realista.
 
 
-
-Agricultura
+- Agricultura
 
 Se pueden analizar imágenes de cultivos tomadas por satélites, drones o aviones para supervisar las cosechas, detectar la aparición de malas hierbas o identificar una deficiencia de nutrientes en el cultivo.
 
 
-
-
-Vehículos autónomos
+- Vehículos autónomos
 
 Los automóviles sin conductor utilizan la identificación y el seguimiento de los objetos en tiempo real para recopilar información sobre lo que ocurre alrededor del automóvil y dirigirlo en consecuencia.
 
 
-
-
-Sector sanitario
+- Sector sanitario
 
 Las fotos o imágenes capturadas por otros dispositivos médicos se pueden analizar para ayudar a los doctores a identificar problemas y realizar diagnósticos con más rapidez y precisión.
 
 
-
-
-Deportes
+- Deportes
 
 La detección y el seguimiento de objetos se utilizan para el análisis de estrategias y partidos.
 
 
+- Fabricación
+
+Computer Vision puede supervisar la maquinaria de fabricación con fines de mantenimiento. También se puede usar para supervisar la calidad y el empaquetado de los productos en una línea de producción y para el control de calidad y detección de fallos y defectos.
 
 
-Fabricación
-
-Computer Vision puede supervisar la maquinaria de fabricación con fines de mantenimiento. También se puede usar para supervisar la calidad y el empaquetado de los productos en una línea de producción.
-
-
-
-Control de calidad y detección de fallos y defectos.
-
-
-
-Análisis espacial
+- Análisis espacial
 
 El sistema identifica a personas u objetos (como automóviles en carreteras, o clientes en establecimientos) y sigue su movimiento dentro de ese espacio, pudiendo calcular distancias entre un objetos/persona y otro, tiempo de permanencia en el lugar, etc.
 
 
-
-
-Reconocimiento facial
+- Reconocimiento facial
 
 Computer Vision se puede usar para identificar a personas y hacer comprobación de identidad. Útil en control de acceso a edificios o espacios, o login en aplicaciones.
 
@@ -236,6 +224,52 @@ Esto daba buenos resultados, pero era lento.
 
 En 2015 apareció Yolo.
 Lo que hacían las regiones con redes neuronales convolucionales en varias iteraciónes, Yolo la hacía en una sola.
+
+
+
+# Fases del proyecto
+
+# 1. Definición de objetivos 
+Primero definimos qué es lo que queríamos conseguir con este proyecto.
+
+# 2. Búsqueda e investigación de herramientas disponibles
+Hicimos una investigación de los métodos y tecnologías usadas para ello.
+Al ser tecnologías nuevas para noostras, empleamos un tiempo en leernos documentación sobre lo que íbamos a utilizar, principalmente: OpenCV, TensorFlow, Keras, Pytorch, Roboflow, etc.
+
+# 3. Recopilación de datos
+Necesitábamos datos,en este caso imágenes, y para conseguirlas usamos varios mñetodos:
+- Uso de la API de Unsplash
+- WebScrapping en diferentes páginas
+
+# 4. Limpieza de datos
+No todas las imágenes conseguidas eran útiles, así que tuvimos que hacer una selección de las más adecuadas.
+
+# 5. Procesamiento de datos
+Para trabajar con imágenes tuvimos que someterlas a ciertos procesos como por ejemplo:
+- redimensionar
+- aplicar filtros de brillo 
+- aplicar máscara de color
+También tuvimos que hacer un proceso de etiquetado de imágenes, que consiste en definir exactamente dónde se encuentra el objeto dentro de la imagen.
+
+Para aumentar la cantidad de datos también tuvimos que modificar las imágenes que ya teníamos, aplicándolas por ejemplo:
+- giros
+- volteos
+- modificación del brillo
+
+# 6. Entrenamiento de los modelos
+Una vez obtenido un buen dataset, realizamos el entrenamiento de los modelos usando:
+- TensorFlow
+- Pytorch
+
+# 7. Test del modelo
+# 8. Validación del modelo
+# 9. Reentrenamiento del modelo
+# 10. Test del modelo
+# 11. Validación del nuevo resultado
+# 12. Integración del modelo 
+
+
+
 
 
 ## Métricas de evaluación de rendimiento.
