@@ -219,9 +219,66 @@ def detectar_objeto(objetivo):
         print("Not valid. Please, try again.")
         return detectar_objeto(objetivo)
 
-
-
 def detectar_objeto_camara(objetivo):
+    """
+    Abre la webcam y detecta si el objeto especificado aparece en pantalla.
+    Solo valida el objeto pasado como argumento.
+    Si se detecta de forma estable en 5 frames consecutivos, confirma la detección.
+    """
+    model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
+    model.to('cpu')
+    model.eval()
+    # Iniciamos la cámara
+    cap = cv2.VideoCapture(0)
+
+    if not cap.isOpened():
+        print("Error: Webcam not available")
+        return
+
+    umbral_deteccion = 5
+    timing = 0
+    conteo_detectado = 0
+    # Bucle para leer la cámara indefinidamente
+    while True:
+        timing +=1
+        ret, frame = cap.read()
+        if not ret:
+            break
+
+        frame = cv2.resize(frame, (320, 240))
+        img_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        results = model(img_rgb)
+        detections = results.pandas().xyxy[0]
+
+        cv2.imshow("Let's help Charlie!!", frame)
+        encontrado = any(detections.name == objetivo)
+        if encontrado:
+            conteo_detectado += 1
+        else:
+            conteo_detectado = 0
+
+        if conteo_detectado >= umbral_deteccion:
+            print(f"{objetivo} correctly detected!")
+            cap.release()
+            cv2.destroyAllWindows()
+            return objetivo
+        elif timing >=100:
+            print(f"{objetivo} not detected.")
+            objetivo = 'Fallido'
+            cap.release()
+            cv2.destroyAllWindows()
+            return objetivo 
+        
+        # Rompe el bucle si se presiona 'q'
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            objetivo = 'Fallido'
+            cap.release()
+            cv2.destroyAllWindows()
+            return objetivo 
+
+    return None
+
+def detectar_objeto_camara_old(objetivo):
     """
     Abre la webcam y detecta si el objeto especificado aparece en pantalla.
     Solo valida el objeto pasado como argumento.
