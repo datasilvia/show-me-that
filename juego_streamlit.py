@@ -110,7 +110,7 @@ def iniciar_trivia():
     categorias_disponibles = categorias_por_habitacion.get(habitacion_actual, [9])
     categoria_seleccionada = random.choice(categorias_disponibles)
 
-    st.session_state.trivia_preguntas = get_trivia_questions(3, categoria_seleccionada)
+    st.session_state.trivia_preguntas = get_trivia_questions(2, categoria_seleccionada)
     st.session_state.trivia_index = 0
     st.session_state.trivia_puntuacion = 0
     st.session_state.fase = 'trivia'
