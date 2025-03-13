@@ -12,6 +12,24 @@ import random
 from PIL import Image
 
 
+
+import os
+import streamlit as st
+
+# Mostrar directorio actual y su contenido
+st.write("📂 Directorio actual:", os.getcwd())
+st.write("📂 Contenido del directorio:", os.listdir("."))
+
+# Verificar si la carpeta yolov5 está presente
+if "yolov5" in os.listdir("."):
+    st.write("✅ La carpeta yolov5 está presente")
+    st.write("📂 Contenido de yolov5:", os.listdir("yolov5"))
+else:
+    st.write("❌ ERROR: No se encontró la carpeta yolov5")
+
+
+
+
 # Configuración de la página
 st.set_page_config(page_title='Escape Room Trivia', page_icon='🧩', layout='centered')
 
