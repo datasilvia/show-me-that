@@ -10,11 +10,12 @@ import tensorflow as tf
 from PIL import Image
 import random
 from PIL import Image
+from ultralytics import YOLO
 
 
 
 import os
-import streamlit as st
+
 
 # Mostrar directorio actual y su contenido
 st.write("📂 Directorio actual:", os.getcwd())
@@ -62,13 +63,17 @@ if 'trivia_preguntas' not in st.session_state or st.session_state.fase == 'inici
 def cargar_modelos():
     #model_yolo = torch.hub.load('./yolov5', 'custom', path='yolov5/yolov5s.pt', source='local')
 
-    from ultralytics import YOLO
+  
 
-    # Asegurar que el modelo está en la carpeta correcta
+    # Asegurar que la carpeta yolov5 existe
+    if not os.path.exists("yolov5"):
+        os.system("git clone https://github.com/ultralytics/yolov5.git")
+
+    # Descargar el modelo si no existe
     if not os.path.exists("yolov5/yolov5s.pt"):
         os.system("wget -O yolov5/yolov5s.pt https://github.com/ultralytics/yolov5/releases/download/v6.0/yolov5s.pt")
 
-    # Cargar el modelo sin usar torch.hub.load()
+    # Cargar YOLO directamente sin usar torch.hub.load()
     model_yolo = YOLO("yolov5/yolov5s.pt")
 
 
