@@ -9,12 +9,11 @@ import time
 import tensorflow as tf
 from PIL import Image
 import random
-from PIL import Image
 from ultralytics import YOLO
-
-
-
 import os
+
+
+
 
 
 # Mostrar directorio actual y su contenido
@@ -60,27 +59,49 @@ if 'trivia_preguntas' not in st.session_state or st.session_state.fase == 'inici
 
 # Cargar modelos de detección
 @st.cache_resource  
+
+
+
 def cargar_modelos():
-    #model_yolo = torch.hub.load('./yolov5', 'custom', path='yolov5/yolov5s.pt', source='local')
-
-  
-
-    # Asegurar que la carpeta yolov5 existe
+    """Función para asegurar que YOLOv5 y sus modelos están listos y cargarlos."""
+    
+    # Verificar si la carpeta yolov5 existe, si no, clonarla
     if not os.path.exists("yolov5"):
+        st.write("🔄 Clonando YOLOv5...")
         os.system("git clone https://github.com/ultralytics/yolov5.git")
 
-    # Descargar el modelo si no existe
+    # Descargar el modelo YOLOv5s si no existe
     if not os.path.exists("yolov5/yolov5s.pt"):
+        st.write("🔄 Descargando modelo YOLOv5s...")
         os.system("wget -O yolov5/yolov5s.pt https://github.com/ultralytics/yolov5/releases/download/v6.0/yolov5s.pt")
 
-    # Cargar YOLO directamente sin usar torch.hub.load()
-    model_yolo = YOLO("yolov5/yolov5s.pt")
+    # Cargar YOLO con ultralytics en lugar de torch.hub.load()
+    try:
+        st.write("🔄 Cargando modelo YOLOv5...")
+        model_yolo = YOLO("yolov5/yolov5s.pt")
+        st.write("✅ Modelo YOLOv5 cargado correctamente.")
+    except Exception as e:
+        st.write(f"❌ Error cargando YOLOv5: {str(e)}")
+        model_yolo = None
 
+    # Si tienes otro modelo personalizado, lo cargamos aquí
+    model_custom = None
+    if os.path.exists("yolov5/best.pt"):
+        try:
+            model_custom = YOLO("yolov5/best.pt")
+            st.write("✅ Modelo personalizado cargado correctamente.")
+        except Exception as e:
+            st.write(f"❌ Error cargando modelo personalizado: {str(e)}")
 
-    model_custom = torch.hub.load('./yolov5', 'custom', path='yolov5/best.pt', source='local')
     return model_yolo, model_custom
 
+# Llamamos la función para cargar los modelos
 model_yolo, model_custom = cargar_modelos()
+
+#def cargar_modelos():
+    #model_yolo = torch.hub.load('./yolov5', 'custom', path='yolov5/yolov5s.pt', source='local')
+
+
 
 @st.cache_resource
 def cargar_modelo_keras():
