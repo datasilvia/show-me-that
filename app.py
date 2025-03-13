@@ -60,7 +60,18 @@ if 'trivia_preguntas' not in st.session_state or st.session_state.fase == 'inici
 # Cargar modelos de detección
 @st.cache_resource  
 def cargar_modelos():
-    model_yolo = torch.hub.load('./yolov5', 'custom', path='yolov5/yolov5s.pt', source='local')
+    #model_yolo = torch.hub.load('./yolov5', 'custom', path='yolov5/yolov5s.pt', source='local')
+
+    from ultralytics import YOLO
+
+    # Asegurar que el modelo está en la carpeta correcta
+    if not os.path.exists("yolov5/yolov5s.pt"):
+        os.system("wget -O yolov5/yolov5s.pt https://github.com/ultralytics/yolov5/releases/download/v6.0/yolov5s.pt")
+
+    # Cargar el modelo sin usar torch.hub.load()
+    model_yolo = YOLO("yolov5/yolov5s.pt")
+
+
     model_custom = torch.hub.load('./yolov5', 'custom', path='yolov5/best.pt', source='local')
     return model_yolo, model_custom
 
