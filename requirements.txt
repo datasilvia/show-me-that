@@ -8,3 +8,4 @@ pandas
 tensorflow
 pillow
 ultralytics
+watchdog  # para evitar errores con asyncio
