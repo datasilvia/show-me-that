@@ -396,7 +396,7 @@ def predicted_object(game_state, target):
     else:
         objeto = target  # Se asigna el target después de tres intentos
 
-    print(f"That {objeto} is jut what I needed!")
+    print(f"That {objeto} is just what I needed!")
     if objeto_a_cat(objeto) not in game_state["categories_discovered"]:
         game_state["categories_discovered"].append(objeto_a_cat(objeto))
     point = int(new_question(objeto))*3
